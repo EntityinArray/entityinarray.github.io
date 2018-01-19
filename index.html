@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Loading..</title>
+		<link rel="stylesheet" type="text/css" href="index.css?3" />
+		<script type="text/javascript" src="js/thirdparty/jquery.js"></script>
+		<script type="text/javascript" src="js/thirdparty/jquery-color.js"></script>
+	</head>
+	<body>
+	
+		<div id="container">
+
+			<img src='img/gmod_logo_brave.png' class="bounce"/>
+			
+			<center>
+				<br />
+				<div id="walk">:)</div>
+				<br />
+				<br />
+				<div id="label">дыщ</div>
+			</center>
+
+		</div>
+		
+
+		<script type="text/javascript">
+			
+			var faces = ["=)","=(","=0","=3","=/","=*","=v","=D","xD",":^)"]
+			var labels = ["вычесленя там","погоди ща","неторопи","зборка информаци","серёзны оналис","зтораюс","ээээээээээммм","УНУНУНУУНУНунунуну"]
+			
+			var smiley = document.getElementById("walk")
+			var label = document.getElementById("label")
+			
+			function ChangeFace(){
+				smiley.innerHTML = faces[Math.floor(Math.random() * faces.length)]
+				smiley.style.backgroundColor = $.Color().hsla(Math.random()*359,1,0.8,255)
+			}
+			
+			function ChangeLabel(){
+				label.innerHTML = labels[Math.floor(Math.random() * labels.length)]+"..."
+			}
+			
+			ChangeFace()
+			ChangeLabel()
+			
+			setInterval(ChangeFace,1000)
+			setInterval(ChangeLabel,5000)
+			
+			function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
+			{
+				// Do with these what you will :)
+				// this function gets called only when joining a multiplayer server
+
+				//$("#spambox").append("serverurl: " + serverurl + "<br>");
+				//$("#spambox").append("servername: " + servername + "<br>");
+				//$("#spambox").append("maxplayers: " + maxplayers + "<br>");
+				//$("#spambox").append("steamid: " + steamid + "<br>");
+				//$("#spambox").append("gamemode: " + gamemode + "<br>");
+				//$("#spambox").append("mapname: " + mapname + "<br>");
+			}
+	
+		</script>
+
+	</body>
+</html>
