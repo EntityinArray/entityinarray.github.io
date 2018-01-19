@@ -88,12 +88,9 @@ BODY
 }
 
 
-#walk
+#smiley
 {	
-	-webkit-animation-name: walk;
-	-webkit-animation-duration: 2s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
+	-webkit-transform: rotateY(90deg);
 	text-align: center;
 	background-color: #09F;
 	width: 48px;
@@ -107,3 +104,10 @@ BODY
 	border: 3px solid #000;
 }
 
+.smiley-animation
+{
+	-webkit-animation-name: walk;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+}

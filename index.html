@@ -14,7 +14,7 @@
 			
 			<center>
 				<br />
-				<div id="walk">:)</div>
+				<div id="smiley">:)</div>
 				<br />
 				<br />
 				<div id="label">дыщ</div>
@@ -28,12 +28,21 @@
 			var faces = ["=)","=(","=0","=3","=/","=*","=v","=D","xD",":^)"]
 			var labels = ["вычесленя там","погоди ща","неторопи","зборка информаци","серёзны оналис","зтораюс","ээээээээээммм","УНУНУНУУНУНунунуну"]
 			
-			var smiley = document.getElementById("walk")
+			var smiley = document.getElementById("smiley")
 			var label = document.getElementById("label")
 			
 			function ChangeFace(){
 				smiley.innerHTML = faces[Math.floor(Math.random() * faces.length)]
 				smiley.style.backgroundColor = $.Color().hsla(Math.random()*359,1,0.8,255)
+				
+				//Restart animation
+				
+				smiley.className = "";
+				window.requestAnimationFrame(function(time) {
+				window.requestAnimationFrame(function(time) {
+					smiley.className = "smiley-animation";
+				});
+				});  
 			}
 			
 			function ChangeLabel(){
@@ -43,8 +52,8 @@
 			ChangeFace()
 			ChangeLabel()
 			
-			setInterval(ChangeFace,1000)
 			setInterval(ChangeLabel,5000)
+			setInterval(ChangeFace,2000)
 			
 			function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
 			{
