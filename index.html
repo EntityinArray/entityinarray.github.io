@@ -31,18 +31,22 @@
 			var smiley = document.getElementById("smiley")
 			var label = document.getElementById("label")
 			
-			function ChangeFace(){
-				smiley.innerHTML = faces[Math.floor(Math.random() * faces.length)]
-				smiley.style.backgroundColor = $.Color().hsla(Math.random()*359,1,0.8,255)
-				
-				//Restart animation
-				
+			function ReplayAnimation(){
+			
+				//Animation is 2 seconds long. In case to synchronise animation, it's is being reset every 2 seconds.
+				//Otherwise animation is desynchronised when tab is unfocused or browser is minimised
+			
 				smiley.className = "";
 				window.requestAnimationFrame(function(time) {
 				window.requestAnimationFrame(function(time) {
 					smiley.className = "smiley-animation";
 				});
-				});  
+				}); 
+			}
+			
+			function ChangeFace(){
+				smiley.innerHTML = faces[Math.floor(Math.random() * faces.length)]
+				smiley.style.backgroundColor = $.Color().hsla(Math.random()*359,1,0.8,255) 
 			}
 			
 			function ChangeLabel(){
@@ -51,9 +55,11 @@
 			
 			ChangeFace()
 			ChangeLabel()
+			ReplayAnimation()
 			
 			setInterval(ChangeLabel,5000)
-			setInterval(ChangeFace,2000)
+			setInterval(ChangeFace,1000)
+			setInterval(ReplayAnimation,2000)
 			
 			function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
 			{
